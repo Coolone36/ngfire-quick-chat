@@ -5,6 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -69,6 +76,10 @@ export const MaterialModules = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig), // for the dev/prod enviornments
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireDatabaseModule,
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     BrowserAnimationsModule,
     MaterialModules,
     FlexLayoutModule,
